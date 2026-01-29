@@ -1,0 +1,176 @@
+.tSection {
+  width: 100%;
+  padding: 70px 16px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.tHeading {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 34px;
+}
+
+/* ✅ marquee wrapper */
+.tMarquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 0;
+}
+
+/* ✅ fade edges (like your screenshot) */
+.tMarquee::before,
+.tMarquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.tMarquee::before {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.tMarquee::after {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* ✅ track */
+.tTrack {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  will-change: transform;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* ✅ directions */
+.tTrack.isRTL {
+  animation-name: marqueeRTL;
+}
+
+.tTrack.isLTR {
+  animation-name: marqueeLTR;
+}
+
+/* Right -> Left */
+@keyframes marqueeRTL {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Left -> Right */
+@keyframes marqueeLTR {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ✅ pause on hover (optional) */
+.tMarquee:hover .tTrack {
+  animation-play-state: paused;
+}
+
+/* =================== CARD =================== */
+.tCard {
+  flex: 0 0 340px;
+  background: #fff;
+  border: 1px solid #e6ecff;
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
+}
+
+.tTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.tName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.2;
+}
+
+.tRole {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.tText {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #374151;
+  margin: 10px 0 14px;
+  min-height: 72px;
+}
+
+.tDivider {
+  height: 1px;
+  background: #eef2ff;
+  margin-bottom: 10px;
+}
+
+.tStars {
+  display: flex;
+  gap: 6px;
+}
+
+.tStar {
+  font-size: 14px;
+}
+
+.tStar.isOn {
+  color: #f59e0b;
+}
+
+.tStar.isOff {
+  color: #e5e7eb;
+}
+
+/* ✅ responsive */
+@media (max-width: 900px) {
+  .tCard {
+    flex-basis: 300px;
+  }
+  .tMarquee::before,
+  .tMarquee::after {
+    width: 60px;
+  }
+}
+
+@media (max-width: 520px) {
+  .tHeading {
+    font-size: 26px;
+  }
+  .tCard {
+    flex-basis: 260px;
+  }
+}

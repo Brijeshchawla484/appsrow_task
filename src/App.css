@@ -1,0 +1,33 @@
+/* Add this to your existing App.css */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d1d1;
+    /* Light grey */
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    /* Adds padding around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+    /* Darker grey on hover */
+}
+
+/* Ensure the app container handles overflow correctly */
+.app-container {
+    overflow-x: hidden;
+    width: 100%;
+}

@@ -1,0 +1,252 @@
+/* Page */
+.ftPage {
+    width: 100%;
+    background: #ffffff;
+    padding: 70px 0 90px;
+}
+
+/* Section */
+.ftSection {
+    width: 100%;
+    padding: 70px 16px;
+
+    /* (optional) smoother */
+    will-change: transform, opacity;
+}
+
+/* Container */
+.ftContainer {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+/* Row layout */
+.ftRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.ftRow--reverse {
+    direction: rtl;
+}
+
+.ftRow--reverse>* {
+    direction: ltr;
+}
+
+/* Text side */
+.ftText {
+    max-width: 520px;
+
+    /* ✅ scroll animation */
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.ftSection.is-inview .ftText {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ftPill {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #3f4bc7;
+    background: #eef0ff;
+    margin-bottom: 16px;
+}
+
+.ftTitle {
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.1;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 16px;
+}
+
+.ftDesc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(15, 23, 42, 0.7);
+    margin: 0;
+    max-width: 480px;
+}
+
+/* Visual side */
+.ftVisual {
+    display: flex;
+    justify-content: center;
+
+    /* small fade from side (optional) */
+    opacity: 0;
+    transform: translateX(18px);
+    transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.ftRow--reverse .ftVisual {
+    transform: translateX(-18px);
+}
+
+.ftSection.is-inview .ftVisual {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Big light-blue panel */
+.ftPanel {
+    position: relative;
+    width: min(520px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 26px;
+    overflow: hidden;
+}
+
+.ftPanelBg {
+    position: absolute;
+    inset: 0;
+    background: #eef3ff;
+}
+
+/* =========================
+   ✅ Floating cards animation
+   (animation on CARD, not image)
+========================= */
+.ftFloat {
+    position: absolute;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.1);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+
+    /* ✅ base transform support */
+    --base: translate(0px, 0px);
+    --ty: 26px;
+    --s: 0.96;
+
+    opacity: 0;
+    transform: var(--base) translate(0px, var(--ty)) scale(var(--s));
+    transition: transform 800ms cubic-bezier(0.2, 0.9, 0.2, 1),
+        opacity 800ms ease;
+    will-change: transform, opacity;
+}
+
+/* when section enters viewport */
+.ftSection.is-inview .ftFloat {
+    opacity: 1;
+    --ty: 0px;
+    --s: 1;
+}
+
+/* ✅ hover effect only on inner image */
+.ftImg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    transform: scale(1);
+    transition: transform 350ms ease;
+}
+
+.ftFloat:hover .ftImg {
+    transform: scale(1.04);
+}
+
+/* Positions */
+.ftFloat--center {
+    width: 68%;
+    height: 62%;
+    left: 50%;
+    top: 50%;
+    --base: translate(-50%, -50%);
+}
+
+.ftFloat--topLeft {
+    width: 55%;
+    height: 34%;
+    left: 7%;
+    top: 10%;
+}
+
+.ftFloat--bottomRight {
+    width: 70%;
+    height: 42%;
+    right: 6%;
+    bottom: 10%;
+}
+
+.ftFloat--overlayRight {
+    width: 70%;
+    height: 34%;
+    right: 6%;
+    bottom: 14%;
+}
+
+/* Center heading (Powerful features) */
+.ftHeader {
+    padding: 10px 16px 40px;
+    text-align: center;
+}
+
+.ftHeaderTitle {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0 0 10px;
+}
+
+.ftHeaderDesc {
+    max-width: 720px;
+    margin: 0 auto;
+    color: rgba(15, 23, 42, 0.55);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 900px) {
+    .ftRow {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .ftText {
+        max-width: 100%;
+    }
+
+    .ftVisual {
+        justify-content: flex-start;
+    }
+
+    .ftPanel {
+        width: 100%;
+        max-width: 520px;
+    }
+
+    .ftFloat--center {
+        width: 78%;
+        height: 64%;
+    }
+}
+
+/* --------------------
+   Accessibility
+-------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .ftText,
+    .ftVisual,
+    .ftFloat,
+    .ftImg {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}

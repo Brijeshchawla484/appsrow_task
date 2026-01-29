@@ -1,0 +1,189 @@
+.footer {
+    position: relative;
+    background: #000;
+    padding: 120px 24px 40px;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* GRID BACKGROUND */
+.footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* ================= CTA ================= */
+.footerCta {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto 120px;
+    padding: 48px 56px;
+    background: linear-gradient(90deg, #5b5ce2, #6366f1);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ctaText h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.ctaText p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.ctaBtn {
+    background: #fff;
+    color: #4f46e5;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ================= MAIN FOOTER ================= */
+.footerMain {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* LEFT BRAND */
+.footerBrand {
+    flex: 0 0 360px;
+}
+
+.brandRow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footerLogo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin: 0;
+    /* ✅ remove bottom spacing */
+}
+
+.brandName {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0;
+    /* ✅ remove default h3 margin (causes shifting) */
+    line-height: 1;
+    white-space: nowrap;
+    /* ✅ never break line */
+}
+
+.brandName span {
+    color: #6366f1;
+}
+
+.copyright {
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* RIGHT SIDE */
+.footerRight {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ================= LINKS ================= */
+.footerLinks {
+    display: flex;
+    gap: 90px;
+}
+
+.linkCol {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 160px;
+}
+
+.linkCol a {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+.linkCol a:hover {
+    color: #fff;
+}
+
+/* ================= SOCIAL (UNDER FEATURES COL) ================= */
+.footerSocial {
+    margin-top: 40px;
+    /* ✅ space below links */
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.footerSocial a {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+}
+
+.footerSocial a:hover {
+    color: #fff;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .footerCta {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .footerMain {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footerBrand {
+        flex: unset;
+    }
+
+    .footerRight {
+        justify-content: center;
+    }
+
+    .footerLinks {
+        flex-direction: column;
+        gap: 28px;
+        align-items: center;
+    }
+
+    .linkCol {
+        align-items: center;
+    }
+
+    .footerSocial {
+        justify-content: center;
+    }
+}

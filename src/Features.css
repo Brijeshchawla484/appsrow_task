@@ -1,0 +1,152 @@
+.features {
+    width: 100%;
+    padding: 100px 16px;
+    background: #ffffff;
+}
+
+.featuresContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* TITLE */
+.featuresTitle {
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 600;
+    color: #0b0b0b;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+}
+
+/* SUBTITLE */
+.featuresSubtitle {
+    max-width: 720px;
+    margin: 0 auto 64px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #6b7280;
+}
+
+/* GRID */
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+}
+
+/* CARD */
+.featureCard {
+    position: relative;
+    min-height: 340px;
+    /* ✅ better than fixed height */
+    padding: 34px 30px;
+    border-radius: 18px;
+
+    background: radial-gradient(120% 120% at 0% 0%,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(246, 250, 255, 0.8) 40%,
+            rgba(243, 247, 255, 1) 100%),
+        linear-gradient(180deg, #f7faff 0%, #f3f7ff 100%);
+
+    border: 1px solid rgba(120, 150, 255, 0.12);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.04);
+    text-align: left;
+
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* little glow on hover */
+.featureCard:hover {
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+    border-color: rgba(120, 150, 255, 0.22);
+}
+
+/* ICON PILL */
+.iconPill {
+    width: 56px;
+    height: 56px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    border: 1px solid rgba(120, 150, 255, 0.14);
+}
+
+/* ICON IMAGE STYLE (✅ IMPORTANT FIX) */
+.iconPill img {
+    width: 26px;
+    /* ✅ keep smaller than pill */
+    height: 26px;
+    object-fit: contain;
+}
+
+/* CARD TITLE */
+.featureCard h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0b0b0b;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+/* CARD TEXT */
+.featureCard p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6b7280;
+    max-width: 44ch;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+/* Tablets */
+@media (max-width: 980px) {
+    .features {
+        padding: 80px 16px;
+    }
+
+    .featuresGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featureCard {
+        min-height: 320px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .features {
+        padding: 64px 14px;
+    }
+
+    .featuresSubtitle {
+        margin-bottom: 42px;
+        font-size: 14px;
+    }
+
+    .featuresGrid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .featureCard {
+        text-align: left;
+        padding: 28px 22px;
+        min-height: auto;
+    }
+
+    .iconPill {
+        width: 52px;
+        height: 52px;
+    }
+}
